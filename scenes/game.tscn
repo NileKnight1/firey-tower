@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b6ogvuo75hhqo" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://df7ij78w1ehta" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://geicme1buxfk" path="res://scenes/panel.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://d0ev6ypxpkbyb" path="res://scenes/monster.tscn" id="4_lbhrr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlew8"]
 bg_color = Color(0.039215688, 0.039215688, 0.05882353, 1)
@@ -43,6 +44,11 @@ script = ExtResource("1_yqjtg")
 
 [node name="map" type="Node2D" parent="." unique_id=883867108]
 
+[node name="monster" parent="." unique_id=262449131 instance=ExtResource("4_lbhrr")]
+z_index = 1
+position = Vector2(-37, 917)
+scale = Vector2(2.6534734, 2.6534734)
+
 [node name="cam" type="Camera2D" parent="." unique_id=1901883951]
 position = Vector2(-19, 66)
 position_smoothing_enabled = true
@@ -69,29 +75,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uwrxv")
 [node name="player" parent="." unique_id=1128796239 instance=ExtResource("1_uwrxv")]
 position = Vector2(-42, 143)
 
-[node name="platforms" type="Node2D" parent="." unique_id=2060272257]
-
-[node name="Panel" parent="platforms" unique_id=1587618924 instance=ExtResource("3_lnu2h")]
+[node name="Panel3" parent="." unique_id=1587618924 instance=ExtResource("3_lnu2h")]
 offset_left = -480.0
 offset_right = -433.758
 scale = Vector2(1, 2.713684)
 theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
 
+[node name="platforms" type="Node2D" parent="." unique_id=2060272257]
+
 [node name="dif" type="Timer" parent="." unique_id=640891644]
 wait_time = 10.0
 autostart = true
-
-[node name="Panel" parent="." unique_id=1468171826 instance=ExtResource("3_lnu2h")]
-offset_left = -393.0
-offset_top = 92.0
-offset_right = -346.758
-offset_bottom = 435.28247
-
-[node name="Panel2" parent="." unique_id=1027839381 instance=ExtResource("3_lnu2h")]
-offset_left = 7.0
-offset_top = -198.0
-offset_right = 53.242004
-offset_bottom = 145.28247
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106860455]
 
@@ -105,7 +99,8 @@ rotation = -1.5707964
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_p57ef")
 
-[node name="Panel4" type="Panel" parent="CanvasLayer" unique_id=658490564]
+[node name="vig" type="Panel" parent="CanvasLayer" unique_id=658490564]
+visible = false
 offset_left = 0.947359
 offset_top = 718.78296
 offset_right = 722.93787
@@ -114,4 +109,10 @@ rotation = -1.5707964
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vlew8")
 
+[node name="restart" type="Button" parent="CanvasLayer" unique_id=1893723712]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Restart?"
+
 [connection signal="timeout" from="dif" to="." method="_on_dif_timeout"]
+[connection signal="pressed" from="CanvasLayer/restart" to="." method="_on_restart_pressed"]

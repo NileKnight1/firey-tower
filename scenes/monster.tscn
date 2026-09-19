@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://d0ev6ypxpkbyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cbnp"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0035k"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
+
+[node name="monster" type="Node2D" unique_id=262449131]
+
+[node name="Panel" type="Panel" parent="." unique_id=1589934481]
+offset_left = -79.0
+offset_top = -105.0
+offset_right = 83.0
+offset_bottom = -56.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel5" type="Panel" parent="." unique_id=1217392559]
+offset_left = -23.0
+offset_top = -59.0
+offset_right = 27.0
+offset_bottom = -10.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel6" type="Panel" parent="." unique_id=541350242]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 27.0
+offset_bottom = 17.0
+rotation = 0.04172747
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel7" type="Panel" parent="." unique_id=1837084875]
+offset_left = -27.0
+offset_top = 4.0
+offset_right = 23.0
+offset_bottom = 53.0
+rotation = -0.21890129
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel8" type="Panel" parent="." unique_id=1974590173]
+offset_left = -23.999998
+offset_top = 18.0
+offset_right = 26.000002
+offset_bottom = 67.0
+rotation = 0.2617994
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel9" type="Panel" parent="." unique_id=797020339]
+offset_left = -28.999996
+offset_top = 55.0
+offset_right = 21.000004
+offset_bottom = 104.0
+rotation = -0.2617994
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel10" type="Panel" parent="." unique_id=622177631]
+offset_left = -23.999998
+offset_top = 65.0
+offset_right = 26.000002
+offset_bottom = 114.0
+rotation = 0.2617994
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel11" type="Panel" parent="." unique_id=1855223127]
+offset_left = -28.999996
+offset_top = 102.0
+offset_right = 21.000004
+offset_bottom = 151.0
+rotation = -0.2617994
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel12" type="Panel" parent="." unique_id=2096202200]
+offset_left = -23.999998
+offset_top = 112.0
+offset_right = 26.000002
+offset_bottom = 161.0
+rotation = 0.2617994
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel13" type="Panel" parent="." unique_id=868435651]
+offset_left = -28.999996
+offset_top = 149.0
+offset_right = 21.000004
+offset_bottom = 198.0
+rotation = -0.2617994
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel4" type="Panel" parent="." unique_id=1580225635]
+offset_left = -79.0
+offset_top = -211.0
+offset_right = 83.0
+offset_bottom = -164.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cbnp")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1933794300]
+offset_left = -79.0
+offset_top = -165.0
+offset_right = -38.0
+offset_bottom = -104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0035k")
+
+[node name="Panel3" type="Panel" parent="." unique_id=2132132701]
+offset_left = 42.0
+offset_top = -165.0
+offset_right = 83.0
+offset_bottom = -104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0035k")

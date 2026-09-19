@@ -5,6 +5,21 @@ func _ready() -> void:
 	start_game()
 
 func start_game():
+	$CanvasLayer/vig.visible = 1
+	$CanvasLayer/restart.visible = 0
+	$monster.position.y = 917.0
+	$cam.position = Vector2(-19.0, 66)
+	$player.position = Vector2(-42, 143)
+	
+	cam_move_speed = 0.2
+	good = 0
+	cur_y = 180
+	
+	for i in $platforms.get_children():
+		i.queue_free()
+		
+	
+	
 	game_running = 1
 	spawn_apply()
 
@@ -19,14 +34,27 @@ var good = 0
 func _process(delta: float) -> void:
 	if !game_running: return
 	$cam.position.y -= cam_move_speed
+	$monster.position.y -= cam_move_speed*2
+	
 	
 	if ($cam.position.y - $player.position.y) > 100:
 		good = 1
 		var temp = $cam.position.y
+		
 		var tween = create_tween()
 		tween.tween_property($cam, "position:y", temp-70, 0.3)
 	else:
 		good = 0
+	
+	if ($monster.position.y - $player.position.y) > 1000:
+		good = 1
+		var temp = $monster.position.y
+		
+		var tween = create_tween()
+		tween.tween_property($monster, "position:y", temp-350, 0.15)
+	else:
+		good = 0
+	
 	
 	#print(good)
 	#print(cur_y)
@@ -34,7 +62,7 @@ func _process(delta: float) -> void:
 	
 	if abs(cur_y-$cam.position.y) < 500:
 		spawn_platform()
-	#print($platforms.get_child_count())
+	print($platforms.get_child_count())
 	if $platforms.get_child_count() > 10:
 		$platforms.get_child(0).queue_free()
 	
@@ -48,6 +76,7 @@ func _process(delta: float) -> void:
 var game_running = 0
 
 func game_over():
+	$CanvasLayer/restart.visible = 1
 	game_running = 0
 
 var cur_y = 180
@@ -81,3 +110,7 @@ func spawn_platform():
 func _on_dif_timeout() -> void:
 	#cam_move_speed += 0.4
 	pass
+
+func _on_restart_pressed() -> void:
+	start_game()
+	
