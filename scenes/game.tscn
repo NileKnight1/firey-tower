@@ -39,6 +39,26 @@ fill_to = Vector2(0.510101, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlew8"]
 texture = SubResource("GradientTexture2D_bekt7")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.16470589, 0.15294118, 0.1882353, 1)
+
+[sub_resource type="Gradient" id="Gradient_iywne"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.101960786, 0.09019608, 0.1254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vlew8"]
+gradient = SubResource("Gradient_iywne")
+width = 300
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_p57ef"]
+colors = PackedColorArray(0.2901961, 0.36078432, 0.18039216, 1, 0.5411765, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u5sy4"]
+gradient = SubResource("Gradient_p57ef")
+width = 300
+height = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
 font = ExtResource("5_iywne")
 font_size = 40
@@ -117,6 +137,22 @@ rotation = -1.5707964
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vlew8")
 
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1745043486]
+offset_left = 27.0
+offset_top = 25.0
+offset_right = 329.0
+offset_bottom = 47.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iywne")
+
+[node name="prog" type="TextureProgressBar" parent="CanvasLayer" unique_id=2126820060]
+offset_left = 28.0
+offset_top = 26.0
+offset_right = 328.0
+offset_bottom = 56.0
+texture_under = SubResource("GradientTexture2D_vlew8")
+texture_progress = SubResource("GradientTexture2D_u5sy4")
+
 [node name="restart" type="Button" parent="CanvasLayer" unique_id=1893723712]
 offset_left = 8.0
 offset_top = 138.0
@@ -126,10 +162,19 @@ text = "Restart?"
 
 [node name="score" type="Label" parent="CanvasLayer" unique_id=764028939]
 offset_left = 23.0
+offset_top = 64.0
+offset_right = 174.0
+offset_bottom = 127.0
+text = "Score:  0"
+label_settings = SubResource("LabelSettings_lbhrr")
+
+[node name="highest" type="Label" parent="CanvasLayer" unique_id=550807304]
+visible = false
+offset_left = 23.0
 offset_top = 14.0
 offset_right = 174.0
 offset_bottom = 77.0
-text = "Score:  0"
+text = "Highest:  0"
 label_settings = SubResource("LabelSettings_lbhrr")
 
 [node name="score" type="Timer" parent="." unique_id=2037925143]

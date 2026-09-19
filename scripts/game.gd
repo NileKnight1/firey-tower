@@ -1,11 +1,30 @@
 extends Node2D
 
 
+var sound_click = preload("res://audio/buttonpress.mp3")
+var sound_bite = preload("res://audio/bite.mp3")
+var sound_hit = preload("res://audio/hit.mp3")
+
+func play_sound(sound, vol = 0.0):
+	var temp = AudioStreamPlayer.new()
+	temp.stream = sound
+	temp.volume_db = vol
+	add_child(temp)
+	
+	temp.finished.connect(temp.queue_free)
+	temp.play()
+
+
+
 var score = 0
 func _ready() -> void:
 	start_game()
 
 func start_game():
+	$CanvasLayer/prog.max_value = global.highest_score
+	
+	$CanvasLayer/highest.text = "Highest: " + str(global.highest_score)
+	$player.move = 1
 	score = 0
 	$CanvasLayer/vig.visible = 1
 	$CanvasLayer/restart.visible = 0
@@ -13,6 +32,9 @@ func start_game():
 	$cam.position = Vector2(-19.0, 66)
 	$player.position = Vector2(-42, 143)
 	
+	Engine.time_scale = 1 
+	
+	score_rate = 1
 	cam_move_speed = 0.2
 	good = 0
 	cur_y = 180
@@ -77,6 +99,10 @@ func _process(delta: float) -> void:
 var game_running = 0
 
 func game_over():
+	play_sound(sound_bite)
+	#Engine.time_scale = 0.3
+	$player.move = 0
+	global.highest_score = max(global.highest_score, score)
 	$CanvasLayer/restart.visible = 1
 	game_running = 0
 
@@ -110,15 +136,22 @@ func spawn_platform():
 	
 
 func _on_dif_timeout() -> void:
+	if !game_running: return
 	cam_move_speed += 0.4
 	score_rate += 1
 
 func _on_restart_pressed() -> void:
+	play_sound(sound_click)
 	start_game()
 
 var score_rate = 1
 func score_update():
 	score += score_rate
 	$CanvasLayer/score.text = "Score: " + str(score)
+	$CanvasLayer/prog.value = score
+	if score > global.highest_score:
+		$CanvasLayer/highest.text = "Highest: " + str(score)
+		
 func _on_score_timeout() -> void:
+	if !game_running: return
 	score_update()
