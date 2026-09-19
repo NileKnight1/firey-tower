@@ -1,3 +1,3 @@
 extends Node
 
-var highest_score = 300
+var highest_score = 15

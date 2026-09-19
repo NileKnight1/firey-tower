@@ -18,14 +18,13 @@ func play_sound(sound, vol = 0.0):
 
 var score = 0
 func _ready() -> void:
+	#perfect()
 	start_game()
 
 func start_game():
 	$CanvasLayer/prog.max_value = global.highest_score
-	
 	$CanvasLayer/highest.text = "Highest: " + str(global.highest_score)
 	$player.move = 1
-	score = 0
 	$CanvasLayer/vig.visible = 1
 	$CanvasLayer/restart.visible = 0
 	$monster.position.y = 917.0
@@ -33,7 +32,8 @@ func start_game():
 	$player.position = Vector2(-42, 143)
 	
 	Engine.time_scale = 1 
-	
+	perfect_multi = 1
+	score = 0
 	score_rate = 1
 	cam_move_speed = 0.2
 	good = 0
@@ -60,14 +60,23 @@ func _process(delta: float) -> void:
 	$monster.position.y -= cam_move_speed*2
 	
 	
+	
 	if ($cam.position.y - $player.position.y) > 100:
 		good = 1
+		if Input.is_action_just_pressed("jump"):
+			perfect()
+			
 		var temp = $cam.position.y
 		
 		var tween = create_tween()
 		tween.tween_property($cam, "position:y", temp-70, 0.3)
 	else:
 		good = 0
+		cur_perfect = 0
+		perfect_multi = 1
+	
+	
+
 	
 	if ($monster.position.y - $player.position.y) > 1000:
 		good = 1
@@ -85,7 +94,7 @@ func _process(delta: float) -> void:
 	
 	if abs(cur_y-$cam.position.y) < 500:
 		spawn_platform()
-	print($platforms.get_child_count())
+	#print($platforms.get_child_count())
 	if $platforms.get_child_count() > 10:
 		$platforms.get_child(0).queue_free()
 	
@@ -111,6 +120,26 @@ var cur_y = 180
 # panel pos.x -480:125
 # panel size.y 325:540
 
+var cur_perfect = 0
+
+func perfect():
+	cur_perfect += 1
+	if !(cur_perfect % 5):
+		perfect_multi += 1
+	
+	var temp = $CanvasLayer/perfect.duplicate()
+	
+	temp.visible = 1
+	$CanvasLayer.add_child(temp)
+	var pos_y = temp.position.y
+	var tween = create_tween()
+	tween.tween_property(temp, "position:y", pos_y-25, 0.5)
+	
+	
+	tween.tween_property(temp, "modulate:a", 0, 0.5)
+	await get_tree().create_timer(1.0).timeout
+	temp.queue_free()
+	
 
 
 @onready var ref_scene = preload("res://scenes/panel.tscn")
@@ -145,10 +174,23 @@ func _on_restart_pressed() -> void:
 	start_game()
 
 var score_rate = 1
+var perfect_multi = 1
+
 func score_update():
-	score += score_rate
-	$CanvasLayer/score.text = "Score: " + str(score)
-	$CanvasLayer/prog.value = score
+	score += score_rate * perfect_multi
+	if score <= global.highest_score:
+		$CanvasLayer/prog_ind.position.x = remap(score, 0, $CanvasLayer/prog.max_value, 28.0, 327.0)
+		$CanvasLayer/prog.value = score
+	$CanvasLayer/score.text = "Height: " + str(score)
+	$CanvasLayer/multi.text = "x" + str(perfect_multi) + ".0"
+	
+	var tween = create_tween()
+	
+	tween.tween_property($CanvasLayer/score, "scale", Vector2(1.025,1.025), 0.1)
+	
+	tween.tween_property($CanvasLayer/score, "scale", Vector2(1,1), 0.1)
+	#
+	
 	if score > global.highest_score:
 		$CanvasLayer/highest.text = "Highest: " + str(score)
 		

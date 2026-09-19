@@ -167,10 +167,10 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
 [node name="restart" type="Button" parent="CanvasLayer" unique_id=1893723712]
-offset_left = 7.0
-offset_top = 192.0
-offset_right = 79.0
-offset_bottom = 223.0
+offset_left = 8.0
+offset_top = 138.0
+offset_right = 80.0
+offset_bottom = 169.0
 text = "Restart?"
 
 [node name="score" type="Label" parent="CanvasLayer" unique_id=764028939]
@@ -179,14 +179,6 @@ offset_top = 64.0
 offset_right = 174.0
 offset_bottom = 127.0
 text = "Height:  0"
-label_settings = SubResource("LabelSettings_lbhrr")
-
-[node name="multi" type="Label" parent="CanvasLayer" unique_id=709717551]
-offset_left = 24.0
-offset_top = 112.0
-offset_right = 89.0
-offset_bottom = 175.0
-text = "x1.0"
 label_settings = SubResource("LabelSettings_lbhrr")
 
 [node name="perfect" type="Label" parent="CanvasLayer" unique_id=1096594522]

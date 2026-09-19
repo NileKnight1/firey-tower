@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		play_sound(sound_hit)
+		
 	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= 0.5
