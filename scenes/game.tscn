@@ -12,9 +12,20 @@ bg_color = Color(0.9138379, 0.79024345, 0.97943443, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
 bg_color = Color(0.5704158, 0.8732818, 0.36721402, 1)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbhrr"]
+b = Vector2(343, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yqjtg"]
+a = Vector2(-119, -31)
+b = Vector2(347, -32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lnu2h"]
+a = Vector2(-119, -31)
+b = Vector2(345, -33)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_bekt7"]
 a = Vector2(-119, -31)
-b = Vector2(158, -32)
+b = Vector2(343, -32)
 
 [node name="game" type="Node2D" unique_id=1333388129]
 position = Vector2(23, -157)
@@ -46,11 +57,31 @@ position = Vector2(-42, 143)
 [node name="cam" type="Camera2D" parent="." unique_id=1901883951]
 position = Vector2(-19, 66)
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+position_smoothing_speed = 30.0
 
 [node name="refs" type="Node2D" parent="." unique_id=321723480]
 
+[node name="Panel" type="Panel" parent="refs" unique_id=902730796]
+offset_left = 100.0
+offset_top = 346.0
+offset_right = 146.242
+offset_bottom = 689.2825
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="refs/Panel" unique_id=1713490980]
+position = Vector2(44, 1.5258789e-05)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="refs/Panel/StaticBody2D" unique_id=188135072]
+position = Vector2(0, 1.5258789e-05)
+shape = SubResource("SegmentShape2D_lbhrr")
+one_way_collision = true
+debug_color = Color(0.99145573, 0, 0.27134916, 0.41960785)
+
 [node name="Panel5" type="Panel" parent="refs" unique_id=881090791]
+visible = false
 offset_left = -251.0
 offset_top = 345.9091
 offset_right = -204.75754
@@ -65,10 +96,11 @@ rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="refs/Panel5/StaticBody2D" unique_id=2050433774]
 position = Vector2(-132, 195.09093)
-shape = SubResource("SegmentShape2D_bekt7")
+shape = SubResource("SegmentShape2D_yqjtg")
 one_way_collision = true
 
 [node name="Panel13" type="Panel" parent="refs" unique_id=127380853]
+visible = false
 offset_left = -333.0
 offset_top = 345.9091
 offset_right = -286.75754
@@ -83,28 +115,11 @@ rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="refs/Panel13/StaticBody2D" unique_id=1368811664]
 position = Vector2(-132, 195.09093)
-shape = SubResource("SegmentShape2D_bekt7")
-one_way_collision = true
-
-[node name="Panel11" type="Panel" parent="refs" unique_id=902730796]
-offset_left = -59.0
-offset_top = 345.9091
-offset_right = -12.757538
-offset_bottom = 810.1837
-rotation = -1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="refs/Panel11" unique_id=1713490980]
-position = Vector2(208, 251.00002)
-rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="refs/Panel11/StaticBody2D" unique_id=188135072]
-position = Vector2(-132, 195.09093)
-shape = SubResource("SegmentShape2D_bekt7")
+shape = SubResource("SegmentShape2D_lnu2h")
 one_way_collision = true
 
 [node name="Panel12" type="Panel" parent="refs" unique_id=627667440]
+visible = false
 offset_left = -458.0
 offset_top = 345.9091
 offset_right = -411.75754
@@ -123,6 +138,7 @@ shape = SubResource("SegmentShape2D_bekt7")
 one_way_collision = true
 
 [node name="Panel6" type="Panel" parent="refs" unique_id=1928249655]
+visible = false
 offset_left = -358.0
 offset_top = 345.9091
 offset_right = -311.75754
@@ -141,6 +157,7 @@ shape = SubResource("SegmentShape2D_bekt7")
 one_way_collision = true
 
 [node name="Panel7" type="Panel" parent="refs" unique_id=1572146679]
+visible = false
 offset_left = -166.0
 offset_top = 345.9091
 offset_right = -119.75754
@@ -159,6 +176,7 @@ shape = SubResource("SegmentShape2D_bekt7")
 one_way_collision = true
 
 [node name="Panel8" type="Panel" parent="refs" unique_id=1243962576]
+visible = false
 offset_left = 34.0
 offset_top = 345.9091
 offset_right = 80.24246
@@ -177,6 +195,7 @@ shape = SubResource("SegmentShape2D_bekt7")
 one_way_collision = true
 
 [node name="Panel9" type="Panel" parent="refs" unique_id=280465796]
+visible = false
 offset_left = 162.0
 offset_top = 345.9091
 offset_right = 208.24246
@@ -195,6 +214,7 @@ shape = SubResource("SegmentShape2D_bekt7")
 one_way_collision = true
 
 [node name="Panel10" type="Panel" parent="refs" unique_id=116899700]
+visible = false
 offset_left = -462.0
 offset_top = 345.9091
 offset_right = -415.75754
@@ -212,4 +232,4 @@ position = Vector2(-132, 195.09093)
 shape = SubResource("SegmentShape2D_bekt7")
 one_way_collision = true
 
-[node name="platforms" type="Node2D" parent="." unique_id=1476126608]
+[node name="platforms" type="Node2D" parent="." unique_id=2060272257]
