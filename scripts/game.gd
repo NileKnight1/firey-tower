@@ -1,10 +1,12 @@
 extends Node2D
 
 
+var score = 0
 func _ready() -> void:
 	start_game()
 
 func start_game():
+	score = 0
 	$CanvasLayer/vig.visible = 1
 	$CanvasLayer/restart.visible = 0
 	$monster.position.y = 917.0
@@ -18,7 +20,6 @@ func start_game():
 	for i in $platforms.get_children():
 		i.queue_free()
 		
-	
 	
 	game_running = 1
 	spawn_apply()
@@ -51,7 +52,7 @@ func _process(delta: float) -> void:
 		var temp = $monster.position.y
 		
 		var tween = create_tween()
-		tween.tween_property($monster, "position:y", temp-350, 0.15)
+		tween.tween_property($monster, "position:y", temp-260, 0.4)
 	else:
 		good = 0
 	
@@ -107,10 +108,17 @@ func spawn_platform():
 	
 	$platforms.add_child(temp)
 	
+
 func _on_dif_timeout() -> void:
-	#cam_move_speed += 0.4
-	pass
+	cam_move_speed += 0.4
+	score_rate += 1
 
 func _on_restart_pressed() -> void:
 	start_game()
-	
+
+var score_rate = 1
+func score_update():
+	score += score_rate
+	$CanvasLayer/score.text = "Score: " + str(score)
+func _on_score_timeout() -> void:
+	score_update()
