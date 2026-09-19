@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://geicme1buxfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
+bg_color = Color(0.22745098, 0.21176471, 0.2509804, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.41960785, 0.39215687, 0.4392157, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbhrr"]
+b = Vector2(343, 0)
+
+[node name="Panel" type="Panel" unique_id=1587618924]
+offset_left = 100.0
+offset_top = 346.0
+offset_right = 146.242
+offset_bottom = 689.2825
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1000986057]
+position = Vector2(44, 1.5258789e-05)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=905143484]
+position = Vector2(0, 1.5258789e-05)
+shape = SubResource("SegmentShape2D_lbhrr")
+one_way_collision = true
+debug_color = Color(0.99145573, 0, 0.27134916, 0.41960785)
