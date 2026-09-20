@@ -18,15 +18,29 @@ func play_sound(sound, vol = 0.0):
 	temp.finished.connect(temp.queue_free)
 	temp.play()
 
-var bg_color = global.player_bg_color
-var border_color = global.player_border_color
+
+var bg_colors = [
+	["dcbe95","000000ff"],
+	["c4c4c0","000000ff"],
+	["d97a4a","000000ff"],
+	["b8d4dc","000000ff"],
+	
+]
+
+var style_num = 0
+
+func set_style(num):
+	style_num = num
+	for i in $sprite.get_children():
+		var style = i.get_theme_stylebox("panel")
+		style.bg_color = Color(bg_colors[style_num][0])
+		style.border_color = Color(bg_colors[style_num][1])
 
 
 func _ready() -> void:
-	for i in $sprite.get_children():
-		var style = i.get_theme_stylebox("panel")
-		style.bg_color = bg_color
-		style.border_color = border_color
+	set_style(style_num)
+	#print(bg_colors[style][0])
+	#print(bg_colors)
 
 
 func _physics_process(delta: float) -> void:

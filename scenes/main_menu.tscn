@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://l33t7aykppev" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://bc00r235rcbte" path="res://assets/Heylowitch-Regular.otf" id="2_bqqt6"]
+[ext_resource type="ButtonGroup" uid="uid://jk0ko314r6v1" path="res://shop_gp.tres" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://b6ogvuo75hhqo" path="res://scenes/player.tscn" id="4_wu84c"]
+[ext_resource type="ButtonGroup" uid="uid://gb42m2211g4o" path="res://player_gp.tres" id="5_8ln24"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 bg_color = Color(0.039215688, 0.039215688, 0.050980393, 1)
@@ -64,9 +67,74 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-bg_color = Color(0.38743088, 0.16325325, 0, 1)
+bg_color = Color(0.07058824, 0.0627451, 0.101960786, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.41960785, 0.39215687, 0.4392157, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.101960786, 0.09019608, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.23921569, 0.21960784, 0.27058825, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.16470589, 0.14509805, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.13333334, 0.11764706, 0.15686275, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.36078432, 0.33333334, 0.3764706, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.101960786, 0.09019608, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlew8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0, 0, 0, 0.7176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ncv88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdxto"]
 
 [node name="main menu" type="Node2D" unique_id=1314207950]
 script = ExtResource("1_ekxnf")
@@ -93,9 +161,9 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=473343062]
-offset_left = 478.0
+offset_left = 510.0
 offset_top = 29.0
-offset_right = 751.0
+offset_right = 783.0
 offset_bottom = 138.0
 text = "Firey Tower "
 label_settings = SubResource("LabelSettings_ekxnf")
@@ -120,7 +188,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Play"
 
-[node name="cos" type="Button" parent="CanvasLayer/buttons" unique_id=2091695131]
+[node name="shop" type="Button" parent="CanvasLayer/buttons" unique_id=2091695131]
 custom_minimum_size = Vector2(152, 53)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
@@ -130,36 +198,82 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "Styles"
+text = "Shop"
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=125225085]
+[node name="shop" type="Node2D" parent="CanvasLayer" unique_id=125225085]
+position = Vector2(9, 0)
 
-[node name="Panel3" type="Panel" parent="CanvasLayer/Node2D" unique_id=1587618924]
-offset_left = 412.0
-offset_top = 474.0
-offset_right = 723.34753
-offset_bottom = 619.1347
+[node name="panel" type="Panel" parent="CanvasLayer/shop" unique_id=1587618924]
+offset_left = 409.89703
+offset_top = 562.43304
+offset_right = 812.2973
+offset_bottom = 1021.5415
 rotation = -1.5707964
-scale = Vector2(1, 2.713684)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
 
-[node name="Button" type="Button" parent="CanvasLayer/Node2D" unique_id=1148642820]
-offset_left = 716.0
-offset_top = 248.0
-offset_right = 724.0
-offset_bottom = 256.0
+[node name="top" type="HBoxContainer" parent="CanvasLayer/shop" unique_id=578903054]
+offset_left = 412.0
+offset_top = 161.0
+offset_right = 868.0
+offset_bottom = 214.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="player" type="Button" parent="CanvasLayer/shop/top" unique_id=1148642820]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.39215687, 0.4392157, 1)
+theme_override_colors/font_pressed_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.6117647, 0.5882353, 0.627451, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jk1qb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
 toggle_mode = true
-text = "Button"
+button_pressed = true
+button_group = ExtResource("3_bqqt6")
+text = "Player"
 
-[node name="monster" type="VBoxContainer" parent="CanvasLayer/Node2D" unique_id=1535339806]
-offset_left = 98.0
-offset_top = 180.0
-offset_right = 250.0
-offset_bottom = 404.0
+[node name="monster" type="Button" parent="CanvasLayer/shop/top" unique_id=2072557574]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.39215687, 0.4392157, 1)
+theme_override_colors/font_pressed_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.6117647, 0.5882353, 0.627451, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
+toggle_mode = true
+button_group = ExtResource("3_bqqt6")
+text = "Monster"
 
-[node name="red" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=1129920286]
+[node name="monster3" type="Button" parent="CanvasLayer/shop/top" unique_id=626024854]
+visible = false
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.39215687, 0.4392157, 1)
+theme_override_colors/font_pressed_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.6117647, 0.5882353, 0.627451, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
+toggle_mode = true
+text = "Monster"
+
+[node name="monster" type="VBoxContainer" parent="CanvasLayer/shop" unique_id=1535339806]
+visible = false
+offset_left = 716.0
+offset_top = 227.0
+offset_right = 868.0
+offset_bottom = 451.0
+
+[node name="red" type="Button" parent="CanvasLayer/shop/monster" unique_id=1129920286]
 custom_minimum_size = Vector2(152, 53)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
@@ -171,7 +285,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Styles"
 
-[node name="green" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=725837930]
+[node name="green" type="Button" parent="CanvasLayer/shop/monster" unique_id=725837930]
 custom_minimum_size = Vector2(152, 53)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
@@ -183,7 +297,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "green"
 
-[node name="green2" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=613156892]
+[node name="green2" type="Button" parent="CanvasLayer/shop/monster" unique_id=613156892]
 custom_minimum_size = Vector2(152, 53)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
@@ -195,7 +309,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "green"
 
-[node name="green3" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=24695627]
+[node name="green3" type="Button" parent="CanvasLayer/shop/monster" unique_id=24695627]
 custom_minimum_size = Vector2(152, 53)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
@@ -207,67 +321,62 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "green"
 
-[node name="player" type="VBoxContainer" parent="CanvasLayer/Node2D" unique_id=1907963314]
-offset_left = 263.0
-offset_top = 183.0
-offset_right = 415.0
-offset_bottom = 407.0
+[node name="player" type="HFlowContainer" parent="CanvasLayer/shop" unique_id=84198830]
+offset_left = 45.0
+offset_top = 3.0
+offset_right = 370.0
+offset_bottom = 318.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
 
-[node name="red2" type="Button" parent="CanvasLayer/Node2D/player" unique_id=199080005]
-custom_minimum_size = Vector2(152, 53)
+[node name="control" type="Control" parent="CanvasLayer/shop/player" unique_id=2055549281]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+mouse_filter = 2
+
+[node name="panel" type="Panel" parent="CanvasLayer/shop/player/control" unique_id=1232750894]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 376.0
+offset_right = 588.0
+offset_bottom = 526.0
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="style" parent="CanvasLayer/shop/player/control" unique_id=1128796239 instance=ExtResource("4_wu84c")]
+position = Vector2(497, 302)
+scale = Vector2(0.7405387, 0.7405387)
+
+[node name="button" type="Button" parent="CanvasLayer/shop/player/control" unique_id=1883101615]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 439.0
+offset_top = 228.0
+offset_right = 589.0
+offset_bottom = 378.0
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
 theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "Styles"
-
-[node name="green4" type="Button" parent="CanvasLayer/Node2D/player" unique_id=1390752403]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "green"
-
-[node name="green5" type="Button" parent="CanvasLayer/Node2D/player" unique_id=1396627871]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "green"
-
-[node name="green6" type="Button" parent="CanvasLayer/Node2D/player" unique_id=980420128]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "green"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlew8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ncv88")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdxto")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("5_8ln24")
 
 [connection signal="pressed" from="CanvasLayer/buttons/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/buttons/cos" to="." method="_on_styles_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/monster/red" to="." method="_on_monster_style1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/monster/green" to="." method="_on_monster_style2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/monster/green2" to="." method="_on_monster_style3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/monster/green3" to="." method="_on_monster_style4_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/player/red2" to="." method="_on_player_style1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/player/green4" to="." method="_on_player_style2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/player/green5" to="." method="_on_player_style3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/player/green6" to="." method="_on_player_style4_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/shop" to="." method="_on_styles_pressed"]
+[connection signal="toggled" from="CanvasLayer/shop/top/player" to="." method="_on_player_toggled"]
+[connection signal="toggled" from="CanvasLayer/shop/top/monster" to="." method="_on_monster_toggled"]
+[connection signal="pressed" from="CanvasLayer/shop/monster/red" to="." method="_on_monster_style1_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop/monster/green" to="." method="_on_monster_style2_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop/monster/green2" to="." method="_on_monster_style3_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop/monster/green3" to="." method="_on_monster_style4_pressed"]

@@ -1,6 +1,11 @@
 extends Node2D
 
 func _ready() -> void:
+	var temp = 0
+	for i in $CanvasLayer/shop/player.get_children():
+		i.get_child(1).style_num = temp
+		temp += 1
+	
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
@@ -35,3 +40,15 @@ func _on_player_style3_pressed() -> void:
 func _on_player_style4_pressed() -> void:
 	global.player_bg_color = Color("b8d4dc")
 	global.player_border_color = Color("0a1416ff")
+
+
+func _on_player_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$CanvasLayer/shop/player.visible = 1
+	else:
+		$CanvasLayer/shop/player.visible = 0
+func _on_monster_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$CanvasLayer/shop/monster.visible = 1
+	else:
+		$CanvasLayer/shop/monster.visible = 0
