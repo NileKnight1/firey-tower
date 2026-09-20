@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://glnxr14u8pe4"]
+
+[ext_resource type="Script" uid="uid://l33t7aykppev" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://bc00r235rcbte" path="res://assets/Heylowitch-Regular.otf" id="2_bqqt6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.101960786, 0.09019608, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.05882353, 0.050980393, 0.07058824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6901961, 0.1254902, 0.1254902, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.16470589, 0.14509805, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6901961, 0.1254902, 0.1254902, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.38743088, 0.16325325, 0, 1)
+
+[node name="main menu" type="Node2D" unique_id=1314207950]
+script = ExtResource("1_ekxnf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2072959076]
+
+[node name="cos" type="Button" parent="CanvasLayer" unique_id=2091695131]
+offset_left = 54.0
+offset_top = 111.0
+offset_right = 206.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Styles"
+
+[node name="play" type="Button" parent="CanvasLayer" unique_id=423720196]
+offset_left = 55.0
+offset_top = 47.0
+offset_right = 207.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Play"
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=125225085]
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/Node2D" unique_id=1587618924]
+offset_left = 412.0
+offset_top = 474.0
+offset_right = 723.34753
+offset_bottom = 619.1347
+rotation = -1.5707964
+scale = Vector2(1, 2.713684)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
+
+[node name="red" type="Button" parent="CanvasLayer/Node2D" unique_id=1129920286]
+offset_left = 440.0
+offset_top = 181.0
+offset_right = 592.0
+offset_bottom = 234.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Styles"
+
+[node name="green" type="Button" parent="CanvasLayer/Node2D" unique_id=725837930]
+offset_left = 441.0
+offset_top = 246.0
+offset_right = 593.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "green"
+
+[node name="green2" type="Button" parent="CanvasLayer/Node2D" unique_id=613156892]
+offset_left = 441.0
+offset_top = 315.0
+offset_right = 593.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "green"
+
+[node name="green3" type="Button" parent="CanvasLayer/Node2D" unique_id=24695627]
+offset_left = 441.0
+offset_top = 381.0
+offset_right = 593.0
+offset_bottom = 434.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "green"
+
+[connection signal="pressed" from="CanvasLayer/cos" to="." method="_on_styles_pressed"]
+[connection signal="pressed" from="CanvasLayer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/red" to="." method="_on_monster_style1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/green" to="." method="_on_monster_style2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/green2" to="." method="_on_monster_style3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/green3" to="." method="_on_monster_style4_pressed"]

@@ -23,7 +23,14 @@ func play_sound(sound, vol = 0.0):
 	temp.play()
 
 func scream_sounds():
-	var temp = randi_range(0,4)
+	var temp = randi_range(8, 18)
+	
+	for i in range(temp):
+		await get_tree().create_timer(1).timeout
+		if !game_running: return
+	
+	
+	temp = randi_range(0,4)
 	match temp:
 		0: temp = sound_scream0
 		1: temp = sound_scream1
@@ -31,14 +38,17 @@ func scream_sounds():
 		3: temp = sound_scream3
 		4: temp = sound_scream4
 	
-	if game_running:
-		play_sound(temp)
-		scream_sounds() 
+	#if game_running:
+	print("played")
+	play_sound(temp)
+	scream_sounds() 
 
 
 var score = 0
 func _ready() -> void:
 	#perfect()
+	$CanvasLayer/black.visible = 1
+	
 	start_game()
 
 var tween_monster: Tween
@@ -48,7 +58,7 @@ func start_game():
 	
 	$CanvasLayer/red.visible = 0
 	
-	 
+	scream_sounds()
 	
 	$bg.play()
 	var temp = $monster.position.x

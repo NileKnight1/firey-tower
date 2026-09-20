@@ -18,6 +18,16 @@ func play_sound(sound, vol = 0.0):
 	temp.finished.connect(temp.queue_free)
 	temp.play()
 
+var bg_color = Color("dcbe95")
+var border_color = Color("000000ff")
+
+
+func _ready() -> void:
+	for i in $sprite.get_children():
+		var style = i.get_theme_stylebox("panel")
+		style.bg_color = bg_color
+		style.border_color = border_color
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

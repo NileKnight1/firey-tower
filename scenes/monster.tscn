@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d0ev6ypxpkbyb"]
 
+[ext_resource type="Script" uid="uid://dte5d5u23ev0o" path="res://scripts/monster.gd" id="1_uwnm8"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cbnp"]
 bg_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 border_width_left = 1
@@ -16,6 +18,7 @@ border_width_right = 1
 border_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
 
 [node name="monster" type="Node2D" unique_id=262449131]
+script = ExtResource("1_uwnm8")
 
 [node name="Panel" type="Panel" parent="." unique_id=1589934481]
 offset_left = -79.0

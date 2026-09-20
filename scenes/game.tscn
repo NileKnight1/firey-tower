@@ -259,6 +259,7 @@ text = "Highest:  0"
 label_settings = SubResource("LabelSettings_lbhrr")
 
 [node name="black" type="Panel" parent="CanvasLayer" unique_id=610790007]
+visible = false
 modulate = Color(1, 1, 1, 0)
 offset_left = 0.9473592
 offset_top = 723.32837
