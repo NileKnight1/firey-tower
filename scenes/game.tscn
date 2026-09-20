@@ -222,6 +222,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0tnpc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
 text = "Restart?"
 
+[node name="menu" type="Button" parent="CanvasLayer" unique_id=573225155]
+visible = false
+offset_left = 582.0
+offset_top = 392.0
+offset_right = 734.0
+offset_bottom = 445.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("5_iywne")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_u5sy4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0tnpc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
+text = "Menu"
+
 [node name="score" type="Label" parent="CanvasLayer" unique_id=764028939]
 offset_left = 23.0
 offset_top = 64.0
@@ -278,5 +293,6 @@ stream = ExtResource("6_p57ef")
 
 [connection signal="timeout" from="dif" to="." method="_on_dif_timeout"]
 [connection signal="pressed" from="CanvasLayer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/menu" to="." method="_on_menu_pressed"]
 [connection signal="timeout" from="score" to="." method="_on_score_timeout"]
 [connection signal="finished" from="bg" to="." method="_on_bg_finished"]

@@ -72,6 +72,8 @@ func start_game():
 	$player.move = 1
 	$CanvasLayer/vig.visible = 1
 	$CanvasLayer/restart.visible = 0
+	$CanvasLayer/menu.visible = 0
+	
 	$monster.position.y = 917.0
 	$cam.position = Vector2(-19.0, 66)
 	$player.position = Vector2(-42, 143)
@@ -174,6 +176,8 @@ func game_over():
 	$player.move = 0
 	global.highest_score = max(global.highest_score, score)
 	$CanvasLayer/restart.visible = 1
+	$CanvasLayer/menu.visible = 1
+	
 	game_running = 0
 	
 	await get_tree().create_timer(1.0).timeout
@@ -188,7 +192,7 @@ var cur_perfect = 0
 
 func perfect():
 	cur_perfect += 1
-	if !(cur_perfect % 2):
+	if !(cur_perfect % 5):
 		perfect_multi += 1
 	
 	var temp = $CanvasLayer/perfect.duplicate()
@@ -275,3 +279,6 @@ func _on_score_timeout() -> void:
 func _on_bg_finished() -> void:
 	if game_running:
 		$bg.play()
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="firey-tower"
-run/main_scene="uid://dryc23mm6rj2x"
+run/main_scene="uid://glnxr14u8pe4"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

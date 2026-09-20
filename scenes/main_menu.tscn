@@ -202,7 +202,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Shop"
 
+[node name="settings" type="Button" parent="CanvasLayer/buttons" unique_id=1734341145]
+visible = false
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Settings"
+
 [node name="shop" type="Node2D" parent="CanvasLayer" unique_id=125225085]
+visible = false
 position = Vector2(9, 0)
 
 [node name="panel" type="Panel" parent="CanvasLayer/shop" unique_id=1587618924]
@@ -267,61 +281,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
 toggle_mode = true
 text = "Monster"
-
-[node name="monsterx" type="VBoxContainer" parent="CanvasLayer/shop" unique_id=1535339806]
-visible = false
-offset_left = 716.0
-offset_top = 227.0
-offset_right = 868.0
-offset_bottom = 451.0
-
-[node name="red" type="Button" parent="CanvasLayer/shop/monsterx" unique_id=1129920286]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "Styles"
-
-[node name="green" type="Button" parent="CanvasLayer/shop/monsterx" unique_id=725837930]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "green"
-
-[node name="green2" type="Button" parent="CanvasLayer/shop/monsterx" unique_id=613156892]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "green"
-
-[node name="green3" type="Button" parent="CanvasLayer/shop/monsterx" unique_id=24695627]
-custom_minimum_size = Vector2(152, 53)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "green"
 
 [node name="player" type="HFlowContainer" parent="CanvasLayer/shop" unique_id=84198830]
 visible = false
@@ -677,10 +636,6 @@ position = Vector2(511, 322.99997)
 scale = Vector2(0.43178114, 0.43178114)
 
 [connection signal="pressed" from="CanvasLayer/buttons/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/buttons/shop" to="." method="_on_styles_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/shop" to="." method="_on_shop_pressed"]
 [connection signal="toggled" from="CanvasLayer/shop/top/player" to="." method="_on_player_toggled"]
 [connection signal="toggled" from="CanvasLayer/shop/top/monster" to="." method="_on_monster_toggled"]
-[connection signal="pressed" from="CanvasLayer/shop/monsterx/red" to="." method="_on_monster_style1_pressed"]
-[connection signal="pressed" from="CanvasLayer/shop/monsterx/green" to="." method="_on_monster_style2_pressed"]
-[connection signal="pressed" from="CanvasLayer/shop/monsterx/green2" to="." method="_on_monster_style3_pressed"]
-[connection signal="pressed" from="CanvasLayer/shop/monsterx/green3" to="." method="_on_monster_style4_pressed"]
