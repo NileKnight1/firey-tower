@@ -11,14 +11,16 @@ var bg_colors = [
 	
 ]
 
-var style_num = global.monster_style
+@export var style_num = global.monster_style
 
 func set_style(num):
 	style_num = num
-	for i in $sprite.get_children():
-		var style = i.get_theme_stylebox("panel")
+	for i in get_children():
+		var style = i.get_theme_stylebox("panel").duplicate()
 		style.bg_color = Color(bg_colors[style_num][0])
 		style.border_color = Color(bg_colors[style_num][1])
+		i.add_theme_stylebox_override("panel", style)
+
 
 func _ready() -> void:
 	set_style(style_num)

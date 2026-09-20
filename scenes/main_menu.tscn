@@ -171,10 +171,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="buttons" type="VBoxContainer" parent="CanvasLayer" unique_id=1132466155]
-offset_left = 530.0
-offset_top = 162.0
-offset_right = 682.0
-offset_bottom = 272.0
+offset_left = 952.0
+offset_top = 209.0
+offset_right = 1104.0
+offset_bottom = 319.0
 
 [node name="play" type="Button" parent="CanvasLayer/buttons" unique_id=423720196]
 custom_minimum_size = Vector2(152, 53)
@@ -347,10 +347,6 @@ rotation = -1.5707964
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
 
-[node name="style" parent="CanvasLayer/shop/player/control" unique_id=1128796239 instance=ExtResource("4_wu84c")]
-position = Vector2(497, 302)
-scale = Vector2(0.7405387, 0.7405387)
-
 [node name="button" type="Button" parent="CanvasLayer/shop/player/control" unique_id=1883101615]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
@@ -369,8 +365,137 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ncv88")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hdxto")
 toggle_mode = true
-button_pressed = true
 button_group = ExtResource("5_8ln24")
+
+[node name="style" parent="CanvasLayer/shop/player/control" unique_id=1128796239 instance=ExtResource("4_wu84c")]
+position = Vector2(497, 302)
+scale = Vector2(0.7405387, 0.7405387)
+
+[node name="control2" type="Control" parent="CanvasLayer/shop/player" unique_id=973246763]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="panel" type="Panel" parent="CanvasLayer/shop/player/control2" unique_id=2107996012]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 376.0
+offset_right = 588.0
+offset_bottom = 526.0
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="button" type="Button" parent="CanvasLayer/shop/player/control2" unique_id=950676213]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 439.0
+offset_top = 228.0
+offset_right = 589.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlew8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ncv88")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdxto")
+toggle_mode = true
+button_group = ExtResource("5_8ln24")
+
+[node name="style" parent="CanvasLayer/shop/player/control2" unique_id=953449873 instance=ExtResource("4_wu84c")]
+position = Vector2(497, 302)
+scale = Vector2(0.7405387, 0.7405387)
+
+[node name="control3" type="Control" parent="CanvasLayer/shop/player" unique_id=1951765119]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="panel" type="Panel" parent="CanvasLayer/shop/player/control3" unique_id=1486751618]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 376.0
+offset_right = 588.0
+offset_bottom = 526.0
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="button" type="Button" parent="CanvasLayer/shop/player/control3" unique_id=1124566502]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 439.0
+offset_top = 228.0
+offset_right = 589.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlew8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ncv88")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdxto")
+toggle_mode = true
+button_group = ExtResource("5_8ln24")
+
+[node name="style" parent="CanvasLayer/shop/player/control3" unique_id=814946074 instance=ExtResource("4_wu84c")]
+position = Vector2(497, 302)
+scale = Vector2(0.7405387, 0.7405387)
+
+[node name="control4" type="Control" parent="CanvasLayer/shop/player" unique_id=266376143]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="panel" type="Panel" parent="CanvasLayer/shop/player/control4" unique_id=2039410287]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 376.0
+offset_right = 588.0
+offset_bottom = 526.0
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="button" type="Button" parent="CanvasLayer/shop/player/control4" unique_id=241993059]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 439.0
+offset_top = 228.0
+offset_right = 589.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlew8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ncv88")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdxto")
+toggle_mode = true
+button_group = ExtResource("5_8ln24")
+
+[node name="style" parent="CanvasLayer/shop/player/control4" unique_id=2101767020 instance=ExtResource("4_wu84c")]
+position = Vector2(497, 302)
+scale = Vector2(0.7405387, 0.7405387)
 
 [connection signal="pressed" from="CanvasLayer/buttons/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/buttons/shop" to="." method="_on_styles_pressed"]
