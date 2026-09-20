@@ -1,6 +1,9 @@
 extends Node2D
 
 func _ready() -> void:
+	
+	$CanvasLayer/shop/player.visible = 1
+	$CanvasLayer/shop/monster.visible = 0DDDD
 	var buttons = [
 	$CanvasLayer/shop/player/control/button,
 	$CanvasLayer/shop/player/control2/button,
@@ -11,12 +14,26 @@ func _ready() -> void:
 	for i in buttons.size():
 		buttons[i].toggled.connect(_on_player_style_toggled.bind(i))
 	
+	buttons = [
+	$CanvasLayer/shop/monster/control/button,
+	$CanvasLayer/shop/monster/control2/button,
+	$CanvasLayer/shop/monster/control3/button,
+	$CanvasLayer/shop/monster/control4/button,
+	]
+	for i in buttons.size():
+		buttons[i].toggled.connect(_on_monster_style_toggled.bind(i))
+	
 	
 	var temp = 0
 	for i in $CanvasLayer/shop/player.get_children():
 		i.get_child(2).set_style(temp)
 		temp += 1
 	$CanvasLayer/shop/player/control/button.button_pressed = 1
+	temp = 0
+	for i in $CanvasLayer/shop/monster.get_children():
+		i.get_child(2).set_style(temp)
+		temp += 1
+	$CanvasLayer/shop/monster/control/button.button_pressed = 1
 	
 
 func _process(delta: float) -> void:
@@ -67,12 +84,5 @@ func _on_monster_toggled(toggled_on: bool) -> void:
 func _on_player_style_toggled(toggled_on, index) -> void:
 	global.player_style = index
 
-#func _on_player_style0_toggled(toggled_on: bool) -> void:
-	#if toggled_on:
-		#global.player_style = 0
-#func _on_player_style1_toggled(toggled_on: bool) -> void:
-	#if toggled_on:
-		#global.player_style = 1
-#func _on_player_style2_toggled(toggled_on: bool) -> void:
-	#if toggled_on:
-		#global.player_style = 2
+func _on_monster_style_toggled(toggled_on, index) -> void:
+	global.monster_style = index
