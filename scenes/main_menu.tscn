@@ -3,6 +3,28 @@
 [ext_resource type="Script" uid="uid://l33t7aykppev" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://bc00r235rcbte" path="res://assets/Heylowitch-Regular.otf" id="2_bqqt6"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.039215688, 0.039215688, 0.050980393, 1)
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+colors = PackedColorArray(0.05882353, 0.05882353, 0.05882353, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bekt7"]
+gradient = SubResource("Gradient_ekxnf")
+fill = 1
+fill_from = Vector2(0.4848485, 0.479798)
+fill_to = Vector2(0.510101, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+texture = SubResource("GradientTexture2D_bekt7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font = ExtResource("2_bqqt6")
+font_size = 45
+font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+shadow_size = 3
+shadow_color = Color(0.5411765, 0.12156863, 0.12156863, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
 bg_color = Color(0.101960786, 0.09019608, 0.1254902, 1)
 border_width_left = 1
@@ -44,30 +66,51 @@ corner_radius_bottom_left = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
 bg_color = Color(0.38743088, 0.16325325, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+
 [node name="main menu" type="Node2D" unique_id=1314207950]
 script = ExtResource("1_ekxnf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2072959076]
 
-[node name="cos" type="Button" parent="CanvasLayer" unique_id=2091695131]
-offset_left = 54.0
-offset_top = 111.0
-offset_right = 206.0
-offset_bottom = 164.0
-theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
-theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-text = "Styles"
+[node name="Panel3" type="Panel" parent="CanvasLayer" unique_id=2009830879]
+offset_left = -8.000011
+offset_top = 723.8278
+offset_right = 721.1753
+offset_bottom = 1203.209
+rotation = -1.5707964
+scale = Vector2(1, 2.713684)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqqt6")
 
-[node name="play" type="Button" parent="CanvasLayer" unique_id=423720196]
-offset_left = 55.0
-offset_top = 47.0
-offset_right = 207.0
-offset_bottom = 100.0
+[node name="vig" type="Panel" parent="CanvasLayer" unique_id=1770911591]
+offset_left = 0.9473592
+offset_top = 723.32837
+offset_right = 727.4833
+offset_bottom = 2004.5618
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=473343062]
+offset_left = 478.0
+offset_top = 29.0
+offset_right = 751.0
+offset_bottom = 138.0
+text = "Firey Tower "
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttons" type="VBoxContainer" parent="CanvasLayer" unique_id=1132466155]
+offset_left = 530.0
+offset_top = 162.0
+offset_right = 682.0
+offset_bottom = 272.0
+
+[node name="play" type="Button" parent="CanvasLayer/buttons" unique_id=423720196]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
 theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
@@ -76,6 +119,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Play"
+
+[node name="cos" type="Button" parent="CanvasLayer/buttons" unique_id=2091695131]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Styles"
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=125225085]
 
@@ -89,11 +144,24 @@ scale = Vector2(1, 2.713684)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
 
-[node name="red" type="Button" parent="CanvasLayer/Node2D" unique_id=1129920286]
-offset_left = 440.0
-offset_top = 181.0
-offset_right = 592.0
-offset_bottom = 234.0
+[node name="Button" type="Button" parent="CanvasLayer/Node2D" unique_id=1148642820]
+offset_left = 716.0
+offset_top = 248.0
+offset_right = 724.0
+offset_bottom = 256.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tbmy8")
+toggle_mode = true
+text = "Button"
+
+[node name="monster" type="VBoxContainer" parent="CanvasLayer/Node2D" unique_id=1535339806]
+offset_left = 98.0
+offset_top = 180.0
+offset_right = 250.0
+offset_bottom = 404.0
+
+[node name="red" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=1129920286]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
 theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
@@ -103,11 +171,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Styles"
 
-[node name="green" type="Button" parent="CanvasLayer/Node2D" unique_id=725837930]
-offset_left = 441.0
-offset_top = 246.0
-offset_right = 593.0
-offset_bottom = 299.0
+[node name="green" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=725837930]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
 theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
@@ -117,11 +183,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "green"
 
-[node name="green2" type="Button" parent="CanvasLayer/Node2D" unique_id=613156892]
-offset_left = 441.0
-offset_top = 315.0
-offset_right = 593.0
-offset_bottom = 368.0
+[node name="green2" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=613156892]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
 theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
@@ -131,11 +195,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "green"
 
-[node name="green3" type="Button" parent="CanvasLayer/Node2D" unique_id=24695627]
-offset_left = 441.0
-offset_top = 381.0
-offset_right = 593.0
-offset_bottom = 434.0
+[node name="green3" type="Button" parent="CanvasLayer/Node2D/monster" unique_id=24695627]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
 theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
@@ -145,9 +207,67 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "green"
 
-[connection signal="pressed" from="CanvasLayer/cos" to="." method="_on_styles_pressed"]
-[connection signal="pressed" from="CanvasLayer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/red" to="." method="_on_monster_style1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/green" to="." method="_on_monster_style2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/green2" to="." method="_on_monster_style3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Node2D/green3" to="." method="_on_monster_style4_pressed"]
+[node name="player" type="VBoxContainer" parent="CanvasLayer/Node2D" unique_id=1907963314]
+offset_left = 263.0
+offset_top = 183.0
+offset_right = 415.0
+offset_bottom = 407.0
+
+[node name="red2" type="Button" parent="CanvasLayer/Node2D/player" unique_id=199080005]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Styles"
+
+[node name="green4" type="Button" parent="CanvasLayer/Node2D/player" unique_id=1390752403]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "green"
+
+[node name="green5" type="Button" parent="CanvasLayer/Node2D/player" unique_id=1396627871]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "green"
+
+[node name="green6" type="Button" parent="CanvasLayer/Node2D/player" unique_id=980420128]
+custom_minimum_size = Vector2(152, 53)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_colors/font_hover_color = Color(0.9607843, 0.9490196, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "green"
+
+[connection signal="pressed" from="CanvasLayer/buttons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/cos" to="." method="_on_styles_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/monster/red" to="." method="_on_monster_style1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/monster/green" to="." method="_on_monster_style2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/monster/green2" to="." method="_on_monster_style3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/monster/green3" to="." method="_on_monster_style4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/player/red2" to="." method="_on_player_style1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/player/green4" to="." method="_on_player_style2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/player/green5" to="." method="_on_player_style3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/player/green6" to="." method="_on_player_style4_pressed"]

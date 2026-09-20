@@ -18,8 +18,8 @@ func play_sound(sound, vol = 0.0):
 	temp.finished.connect(temp.queue_free)
 	temp.play()
 
-var bg_color = Color("dcbe95")
-var border_color = Color("000000ff")
+var bg_color = global.player_bg_color
+var border_color = global.player_border_color
 
 
 func _ready() -> void:

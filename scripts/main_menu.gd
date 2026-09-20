@@ -22,3 +22,16 @@ func _on_monster_style3_pressed() -> void:
 func _on_monster_style4_pressed() -> void:
 	global.monster_bg_color = Color("08070a")
 	global.monster_border_color = Color("3d1f5c")
+
+func _on_player_style1_pressed() -> void:
+	global.player_bg_color = Color("dcbe95")
+	global.player_border_color = Color("000000ff")
+func _on_player_style2_pressed() -> void:
+	global.player_bg_color = Color("c4c4c0")
+	global.player_border_color = Color("000000ff")
+func _on_player_style3_pressed() -> void:
+	global.player_bg_color = Color("d97a4a")
+	global.player_border_color = Color("000000ff")
+func _on_player_style4_pressed() -> void:
+	global.player_bg_color = Color("b8d4dc")
+	global.player_border_color = Color("0a1416ff")
