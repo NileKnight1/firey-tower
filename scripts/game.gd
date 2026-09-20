@@ -4,6 +4,14 @@ extends Node2D
 var sound_click = preload("res://audio/buttonpress.mp3")
 var sound_bite = preload("res://audio/bite.mp3")
 var sound_hit = preload("res://audio/hit.mp3")
+var sound_screech = preload("res://audio/53439420-flying-monster-screech-02-461220.mp3")
+var sound_scream1 = preload("res://audio/dragon-studio-deep-sea-monster-roar-329857.mp3")
+var sound_scream2 = preload("res://audio/dragon-studio-creepy-monster-growling-472378.mp3")
+var sound_scream3 = preload("res://audio/dragon-studio-deep-sea-alien-sound-487681.mp3")
+var sound_scream4 = preload("res://audio/dragon-studio-monster-growl-376892.mp3")
+var sound_scream0 = preload("res://audio/u_kse9ncnirq-sea-monster-screaming-loudly-414878.mp3")
+
+
 
 func play_sound(sound, vol = 0.0):
 	var temp = AudioStreamPlayer.new()
@@ -14,6 +22,18 @@ func play_sound(sound, vol = 0.0):
 	temp.finished.connect(temp.queue_free)
 	temp.play()
 
+func scream_sounds():
+	var temp = randi_range(0,4)
+	match temp:
+		0: temp = sound_scream0
+		1: temp = sound_scream1
+		2: temp = sound_scream2
+		3: temp = sound_scream3
+		4: temp = sound_scream4
+	
+	if game_running:
+		play_sound(temp)
+		scream_sounds() 
 
 
 var score = 0
@@ -21,7 +41,22 @@ func _ready() -> void:
 	#perfect()
 	start_game()
 
+var tween_monster: Tween
 func start_game():
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/black, "modulate:a", 0.0, 0.1)
+	
+	$CanvasLayer/red.visible = 0
+	
+	 
+	
+	$bg.play()
+	var temp = $monster.position.x
+	tween_monster = create_tween()
+	tween_monster.set_loops()
+	tween_monster.tween_property($monster, "position:x", temp-100, 1)
+	tween_monster.tween_property($monster, "position:x", temp+100, 1)
+	
 	$CanvasLayer/prog.max_value = global.highest_score
 	$CanvasLayer/highest.text = "Highest: " + str(global.highest_score)
 	$player.move = 1
@@ -108,12 +143,31 @@ func _process(delta: float) -> void:
 var game_running = 0
 
 func game_over():
-	play_sound(sound_bite)
+	$bg.stop()
+	$CanvasLayer/red.visible = 1
+	play_sound(sound_screech)
+	tween_monster.kill()
+	var temp = $monster.position.y
+	var tween = create_tween()
+	tween.tween_property($monster, "position:y", temp-310, 0.4)
+	temp = $monster.position.x
+	var tween2 = create_tween()
+	tween2.set_loops()
+	tween2.tween_property($monster, "position:x", temp-100, 0.4)
+	tween2.tween_property($monster, "position:x", temp+100, 0.4)
 	#Engine.time_scale = 0.3
+	
+	var tween3 = create_tween()
+	tween3.tween_property($player, "position:y", $player.position.y+500,1)
+	
+	play_sound(sound_bite)
 	$player.move = 0
 	global.highest_score = max(global.highest_score, score)
 	$CanvasLayer/restart.visible = 1
 	game_running = 0
+	
+	await get_tree().create_timer(1.0).timeout
+	tween2.kill()
 
 var cur_y = 180
 
@@ -124,7 +178,7 @@ var cur_perfect = 0
 
 func perfect():
 	cur_perfect += 1
-	if !(cur_perfect % 5):
+	if !(cur_perfect % 2):
 		perfect_multi += 1
 	
 	var temp = $CanvasLayer/perfect.duplicate()
@@ -170,11 +224,16 @@ func _on_dif_timeout() -> void:
 	score_rate += 1
 
 func _on_restart_pressed() -> void:
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/black, "modulate:a", 1.0, 0.1)
+	await get_tree().create_timer(1.0).timeout
+	
 	play_sound(sound_click)
 	start_game()
 
 var score_rate = 1
 var perfect_multi = 1
+var was_multi = 1
 
 func score_update():
 	score += score_rate * perfect_multi
@@ -184,16 +243,25 @@ func score_update():
 	$CanvasLayer/score.text = "Height: " + str(score)
 	$CanvasLayer/multi.text = "x" + str(perfect_multi) + ".0"
 	
+	if was_multi != perfect_multi:
+		var tween2 = create_tween()
+		tween2.tween_property($CanvasLayer/multi, "scale", Vector2(1.025,1.025), 0.1)
+	elif perfect_multi == 1:
+		$CanvasLayer/multi.scale = Vector2(1,1)
+	
+	was_multi = perfect_multi
 	var tween = create_tween()
-	
 	tween.tween_property($CanvasLayer/score, "scale", Vector2(1.025,1.025), 0.1)
-	
 	tween.tween_property($CanvasLayer/score, "scale", Vector2(1,1), 0.1)
 	#
 	
 	if score > global.highest_score:
 		$CanvasLayer/highest.text = "Highest: " + str(score)
-		
+
 func _on_score_timeout() -> void:
 	if !game_running: return
 	score_update()
+
+func _on_bg_finished() -> void:
+	if game_running:
+		$bg.play()
